@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings App | Mobile Banking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --secondary-color: #1976D2;
+            --background-color: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .dashboard {
+            margin-top: 70px;
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .balance {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .balance h2 {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .balance .amount {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .quick-actions {
+            display: flex;
+            justify-content: space-around;
+            margin: 1.5rem 0;
+        }
+
+        .action-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .goals {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .goal-item {
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 4px solid var(--primary-color);
+            background: #f8f8f8;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .transaction-history {
+            margin-top: 1rem;
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .transaction-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .footer-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            text-align: center;
+            color: #666;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>Savings App</h1>
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <div class="balance">
+                <h2>Total Savings</h2>
+                <div class="amount">$5,430.00</div>
+                <button class="action-btn" style="margin-top: 1rem;">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+            <div class="quick-actions">
+                <button class="action-btn">
+                    <i class="fas fa-arrow-down"></i>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-bullseye"></i>
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-history"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="goals">
+            <h2>Savings Goals</h2>
+            <div class="goal-item">
+                <h3>Emergency Fund</h3>
+                <p>$1,200 / $5,000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 24%;"></div>
+                </div>
+            </div>
+            <div class="goal-item">
+                <h3>Vacation Fund</h3>
+                <p>$800 / $2,000</p>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 40%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="transaction-history">
+            <h2>Recent Transactions</h2>
+            <div class="transaction-item">
+                <div>
+                    <h3>Deposit</h3>
+                    <p>2023-09-20</p>
+                </div>
+                <div style="color: #4CAF50;">+$500.00</div>
+            </div>
+            <div class="transaction-item">
+                <div>
+                    <h3>Withdrawal</h3>
+                    <p>2023-09-18</p>
+                </div>
+                <div style="color: #F44336;">-$200.00</div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="footer-nav">
+        <div class="nav-item">
+            <i class="fas fa-home"></i>
+            <p>Home</p>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-wallet"></i>
+            <p>Accounts</p>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-chart-line"></i>
+            <p>Analytics</p>
+        </div>
+        <div class="nav-item">
+            <i class="fas fa-cog"></i>
+            <p>Settings</p>
+        </div>
+    </nav>
+
+    <script>
+        // Add your JavaScript functionality here
+        document.querySelectorAll('.action-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Handle button clicks
+                alert('Feature coming soon!');
+            });
+        });
+    </script>
+</body>
+</html>
